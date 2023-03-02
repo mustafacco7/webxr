@@ -654,7 +654,7 @@ Each {{XRSession}} has a <dfn for=XRSession>set of granted features</dfn>, which
 
 The <dfn attribute for="XRSession">enabledFeatures</dfn> attribute returns the features in the [=XRSession/set of granted features=] as a new array of {{DOMString}}s.
 
-The <dfn attribute for="XRSession">isSystemKeyboardSupported</dfn> attribute indicates that the {{XRSystem}} has the ability to display the system keyboard while the {{XRSession}} is active.
+The <dfn attribute for="XRSession">isSystemKeyboardSupported</dfn> attribute indicates that the {{XRSystem}} has the ability to display the system keyboard while the {{XRSession}} is active. If {{XRSession/isSystemKeyboardSupported}} is <code>true</code>, Web APIs that would trigger the overlay keyboard (such as `focus`) will show the system keyboard. The {{XRSession}} MUST set the [=visibility state=] of the {{XRSession}} to {{XRVisibilityState/"visible-blurred"}} while the keyboard is shown.
 
 <div class="algorithm" data-algorithm="initialize-session">
 
