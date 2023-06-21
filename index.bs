@@ -1259,6 +1259,7 @@ To <dfn>populate the pose</dfn> of an {{XRSpace}} |space| in an {{XRSpace}} |bas
   1. If |space|'s [=XRSpace/session=] does not equal |session|, throw an {{InvalidStateError}} and abort these steps.
   1. If |baseSpace|'s [=XRSpace/session=] does not equal |session|, throw an {{InvalidStateError}} and abort these steps.
   1. Check if [=poses may be reported=] and, if not, throw a {{SecurityError}} and abort these steps.
+  1. If |session|'s {{XRSession/visibilityState}} is {{XRVisibilityState/"visible-blurred"}} and |space| or |baseSpace| is associated with an {{XRInputSource}}, set |pose| to `null` and abort these steps.
   1. Let |limit| be the result of whether [=poses must be limited=] between |space| and |baseSpace|.
   1. Let |transform| be |pose|'s {{XRPose/transform}}.
   1. Query the [=/XR device=]'s tracking system for |space|'s pose relative to |baseSpace| at the |frame|'s [=XRFrame/time=], then perform the following steps:
@@ -2607,7 +2608,7 @@ When based on sensor data, {{XRPose}} and {{XRViewerPose}} will expose [=sensiti
 To determine if <dfn>poses may be reported</dfn> to an {{XRSession}} |session|, the user agent MUST run the following steps:
 
   1. If |session|'s [=relevant global object=] is not the [=current global object=], return `false`.
-  1. If |session|'s {{XRSession/visibilityState}} is not {{XRVisibilityState/"visible"}}, return `false`.
+  1. If |session|'s {{XRSession/visibilityState}} is {{XRVisibilityState/"hidden"}}, return `false`.
   1. Determine if the pose data can be returned as follows:
     <dl class="switch">
       : If the pose data is known by the user agent to not expose fingerprintable sensor data
