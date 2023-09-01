@@ -5,9 +5,9 @@
   <title>WebXR Device API</title>
   <meta content="CR" name="w3c-status">
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-CR" rel="stylesheet">
-  <meta content="Bikeshed version 516eaf3cf, updated Tue Jun 20 13:48:28 2023 -0700" name="generator">
+  <meta content="Bikeshed version 6edc88947, updated Thu Aug 17 11:18:09 2023 -0700" name="generator">
   <link href="https://www.w3.org/TR/webxr/" rel="canonical">
-  <meta content="b0e55b234da717170c29f85d24310033045442fa" name="document-revision">
+  <meta content="9a0cb83e6098e42837c0d551d8b78a6c4459d2c4" name="document-revision">
   <link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
   <link href="favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
 <style>
@@ -794,33 +794,12 @@ a.self-link::before            { content: "¶"; }
 .heading > a.self-link::before { content: "§"; }
 dfn > a.self-link::before      { content: "#"; }
 </style>
-<style>/* Boilerplate: style-style-syntax-highlighting */
+<style>/* Boilerplate: style-syntax-highlighting */
 
             pre.idl.highlight {
                 background: var(--borderedblock-bg, var(--def-bg));
             }
             
-</style>
-<style>/* Boilerplate: style-style-var-click-highlighting */
-/*
-Colors were chosen in Lab using https://nixsensor.com/free-color-converter/
-D50 2deg illuminant, L in [0,100], a and b in [-128, 128]
-0 = lab(85,0,85)
-1 = lab(85,80,30)
-2 = lab(85,-40,40)
-3 = lab(85,-50,0)
-4 = lab(85,5,15)
-5 = lab(85,-10,-50)
-6 = lab(85,35,-15)
-*/
-var { cursor: pointer; }
-var.selected0 { background-color: #F4D200; box-shadow: 0 0 0 2px #F4D200; }
-var.selected1 { background-color: #FF87A2; box-shadow: 0 0 0 2px #FF87A2; }
-var.selected2 { background-color: #96E885; box-shadow: 0 0 0 2px #96E885; }
-var.selected3 { background-color: #3EEED2; box-shadow: 0 0 0 2px #3EEED2; }
-var.selected4 { background-color: #EACFB6; box-shadow: 0 0 0 2px #EACFB6; }
-var.selected5 { background-color: #82DDFF; box-shadow: 0 0 0 2px #82DDFF; }
-var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
 </style>
 <style>/* Boilerplate: style-syntax-highlighting */
 
@@ -945,6 +924,27 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     c-[il] { color: #657b83 } /* Literal.Number.Integer.Long */
 }
 </style>
+<style>/* Boilerplate: style-var-click-highlighting */
+/*
+Colors were chosen in Lab using https://nixsensor.com/free-color-converter/
+D50 2deg illuminant, L in [0,100], a and b in [-128, 128]
+0 = lab(85,0,85)
+1 = lab(85,80,30)
+2 = lab(85,-40,40)
+3 = lab(85,-50,0)
+4 = lab(85,5,15)
+5 = lab(85,-10,-50)
+6 = lab(85,35,-15)
+*/
+var { cursor: pointer; }
+var.selected0 { background-color: #F4D200; box-shadow: 0 0 0 2px #F4D200; }
+var.selected1 { background-color: #FF87A2; box-shadow: 0 0 0 2px #FF87A2; }
+var.selected2 { background-color: #96E885; box-shadow: 0 0 0 2px #96E885; }
+var.selected3 { background-color: #3EEED2; box-shadow: 0 0 0 2px #3EEED2; }
+var.selected4 { background-color: #EACFB6; box-shadow: 0 0 0 2px #EACFB6; }
+var.selected5 { background-color: #82DDFF; box-shadow: 0 0 0 2px #82DDFF; }
+var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
+</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
@@ -961,7 +961,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <dt>Editor's Draft:
       <dd><a href="https://immersive-web.github.io/webxr/">https://immersive-web.github.io/webxr/</a>
       <dt>History:
-      <dd><a class="u-url" href="https://www.w3.org/standards/history/webxr">https://www.w3.org/standards/history/webxr</a>
+      <dd><a class="u-url" href="https://www.w3.org/standards/history/webxr/">https://www.w3.org/standards/history/webxr/</a>
       <dt>Implementation Report:
       <dd><a href="https://wpt.fyi/results/webxr?label=master&amp;label=experimental&amp;aligned">https://wpt.fyi/results/webxr?label=master&amp;label=experimental&amp;aligned</a>
       <dt>Feedback:
@@ -993,11 +993,11 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p> The Immersive Web Working Group maintains <a href="https://github.com/immersive-web/webxr/issues">a list of all bug
         reports that the group has not yet addressed</a>. This draft highlights some of the pending issues that are still to be discussed in the working group. No decision has been taken on the outcome of these issues including whether they are valid.
             Pull requests with proposed specification text for outstanding issues are strongly encouraged. </p>
-   <p> This document was published by the <a href="https://www.w3.org/groups/wg/immersive-web">Immersive Web Working Group</a> as a Candidate Recommendation Snapshot using the <a href="https://www.w3.org/2021/Process-20211102/#recs-and-notes">Recommendation
+   <p> This document was published by the <a href="https://www.w3.org/groups/wg/immersive-web">Immersive Web Working Group</a> as a Candidate Recommendation Snapshot using the <a href="https://www.w3.org/2023/Process-20230612/#recs-and-notes">Recommendation
       track</a>. This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.
       This document will remain a Candidate Recommendation at least until <time class="status-deadline" datetime="2022-04-28">28 April 2022</time> in order to ensure the opportunity for wide review. </p>
    <p> Publication as a Candidate Recommendation does not imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. 
-               A Candidate Recommendation Snapshot has received <a href="https://www.w3.org/2021/Process-20211102/#dfn-wide-review">wide review</a>, is intended to
+               A Candidate Recommendation Snapshot has received <a href="https://www.w3.org/2023/Process-20230612/#dfn-wide-review">wide review</a>, is intended to
           gather implementation experience, and has commitments from Working Group members to <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Requirements">royalty-free licensing</a> for implementations. </p>
    <p> The entrance criteria for this document to enter the Proposed Recommendation stage
   is to have a minimum of two independent and interoperable user agents that
@@ -1009,7 +1009,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
             disclosures</a> made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential
             Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section
             6 of the W3C Patent Policy</a>. </p>
-   <p> This document is governed by the <a href="https://www.w3.org/2021/Process-20211102/" id="w3c_process_revision">2 November 2021 W3C Process Document</a>. </p>
+   <p> This document is governed by the <a href="https://www.w3.org/2023/Process-20230612/" id="w3c_process_revision">12 June 2023 W3C Process Document</a>. </p>
    <p> For changes since the last draft,
         see the <a href="#changes">Changes</a> section. </p>
    <p></p>
@@ -1500,6 +1500,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </ul>
    <p>In this document, the term <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="inline-session">inline session</dfn> is synonymous with an <code class="idl"><a data-link-type="idl" href="#dom-xrsessionmode-inline" id="ref-for-dom-xrsessionmode-inline⑥">inline</a></code> session and the term <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="immersive-session">immersive session</dfn> refers to either an <code class="idl"><a data-link-type="idl" href="#dom-xrsessionmode-immersive-vr" id="ref-for-dom-xrsessionmode-immersive-vr③">immersive-vr</a></code> or <code class="idl"><a data-link-type="idl" href="#dom-xrsessionmode-immersive-ar" id="ref-for-dom-xrsessionmode-immersive-ar①">immersive-ar</a></code> session.</p>
    <p><a data-link-type="dfn" href="#immersive-session" id="ref-for-immersive-session②">Immersive sessions</a> MUST provide some level of <a data-link-type="dfn" href="#viewer" id="ref-for-viewer①">viewer</a> tracking, and content MUST be shown at the proper scale relative to the user and/or the surrounding environment. Additionally, <a data-link-type="dfn" href="#immersive-session" id="ref-for-immersive-session③">Immersive sessions</a> MUST be given <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="exclusive-access">exclusive access</dfn> to the <a data-link-type="dfn" href="#immersive-xr-device" id="ref-for-immersive-xr-device①⑥">immersive XR device</a>, meaning that while the <a data-link-type="dfn" href="#immersive-session" id="ref-for-immersive-session④">immersive session</a> is <code class="idl"><a data-link-type="idl" href="#dom-xrvisibilitystate-visible" id="ref-for-dom-xrvisibilitystate-visible">"visible"</a></code> the HTML document is not shown on the <a data-link-type="dfn" href="#immersive-xr-device" id="ref-for-immersive-xr-device①⑦">immersive XR device</a>'s display, nor does content from any other source have exclusive access. <a data-link-type="dfn" href="#exclusive-access" id="ref-for-exclusive-access①">Exclusive access</a> does not prevent the user agent from overlaying its own UI, however this UI SHOULD be minimal.</p>
+   <p class="note" role="note"><span class="marker">Note:</span> UA may choose to overlay content for accessibility or safety such as guardian boundaries, obstructions or the user’s hands when there are no alternative input sources.</p>
    <p class="note" role="note"><span class="marker">Note:</span> Future specifications or modules may expand the definition of <a data-link-type="dfn" href="#immersive-session" id="ref-for-immersive-session⑤">immersive session</a> to include additional session modes.</p>
    <p class="note" role="note"><span class="marker">Note:</span> Examples of ways <a data-link-type="dfn" href="#exclusive-access" id="ref-for-exclusive-access②">exclusive access</a> may be presented include stereo content displayed on a virtual reality headset.</p>
    <p class="note" role="note"><span class="marker">Note:</span> As an example of overlaid UI, the user agent or operating system in an <a data-link-type="dfn" href="#immersive-session" id="ref-for-immersive-session⑥">immersive session</a> may show notifications over the rendered content.</p>
@@ -4986,7 +4987,7 @@ have been the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipa
    <dt id="biblio-geometry-1">[GEOMETRY-1]
    <dd>Simon Pieters; Chris Harrelson. <a href="https://www.w3.org/TR/geometry-1/"><cite>Geometry Interfaces Module Level 1</cite></a>. 4 December 2018. CR. URL: <a href="https://www.w3.org/TR/geometry-1/">https://www.w3.org/TR/geometry-1/</a>
    <dt id="biblio-hr-time-3">[HR-TIME-3]
-   <dd>Yoav Weiss. <a href="https://www.w3.org/TR/hr-time-3/"><cite>High Resolution Time</cite></a>. 25 April 2023. WD. URL: <a href="https://www.w3.org/TR/hr-time-3/">https://www.w3.org/TR/hr-time-3/</a>
+   <dd>Yoav Weiss. <a href="https://www.w3.org/TR/hr-time-3/"><cite>High Resolution Time</cite></a>. 19 July 2023. WD. URL: <a href="https://www.w3.org/TR/hr-time-3/">https://www.w3.org/TR/hr-time-3/</a>
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-infra">[INFRA]
@@ -4994,7 +4995,7 @@ have been the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipa
    <dt id="biblio-permissions">[PERMISSIONS]
    <dd>Marcos Caceres; Mike Taylor. <a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. 13 June 2023. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
    <dt id="biblio-permissions-policy-1">[PERMISSIONS-POLICY-1]
-   <dd>Ian Clelland. <a href="https://www.w3.org/TR/permissions-policy-1/"><cite>Permissions Policy</cite></a>. 7 June 2023. WD. URL: <a href="https://www.w3.org/TR/permissions-policy-1/">https://www.w3.org/TR/permissions-policy-1/</a>
+   <dd>Ian Clelland. <a href="https://www.w3.org/TR/permissions-policy-1/"><cite>Permissions Policy</cite></a>. 17 July 2023. WD. URL: <a href="https://www.w3.org/TR/permissions-policy-1/">https://www.w3.org/TR/permissions-policy-1/</a>
    <dt id="biblio-pointerevents">[POINTEREVENTS]
    <dd>Jacob Rossi; Matt Brubeck. <a href="https://www.w3.org/TR/pointerevents/"><cite>Pointer Events</cite></a>. 4 April 2019. REC. URL: <a href="https://www.w3.org/TR/pointerevents/">https://www.w3.org/TR/pointerevents/</a>
    <dt id="biblio-pointerlock">[POINTERLOCK]
@@ -6690,9 +6691,9 @@ have been the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipa
     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/XRSystem" title="The WebXR Device API interface XRSystem provides methods which let you get access to an XRSession object representing a WebXR session. With that XRSession in hand, you can use it to interact with the Augmented Reality (AR) or Virtual Reality (VR) device.">XRSystem</a></p>
     <p class="less-than-two-engines-text">In only one current engine.</p>
     <div class="support">
-     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>83+</span></span>
+     <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>79+</span></span>
      <hr>
-     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>83+</span></span>
+     <span class="opera no"><span>Opera</span><span>?</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
      <hr>
      <span class="edge no"><span>Edge (Legacy)</span><span>?</span></span><span class="ie no"><span>IE</span><span>None</span></span>
      <hr>
@@ -7007,7 +7008,7 @@ have been the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipa
   <details class="mdn-anno unpositioned" data-anno-for="dom-xrwebgllayer-getnativeframebufferscalefactor">
    <summary><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></summary>
    <div class="feature">
-    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/XRWebGLLayer/getNativeFramebufferScaleFactor" title="The static method XRWebGLLayer.getNativeFramebufferScaleFactor() returns a floating-point scaling factor by which one can multiply the specified XRSession&apos;s resolution to get the native resolution of the WebXR device&apos;s frame buffer.">XRWebGLLayer/getNativeFramebufferScaleFactor</a></p>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/XRWebGLLayer/getNativeFramebufferScaleFactor_static" title="The static method XRWebGLLayer.getNativeFramebufferScaleFactor() returns a floating-point scaling factor by which one can multiply the specified XRSession&apos;s resolution to get the native resolution of the WebXR device&apos;s frame buffer.">XRWebGLLayer/getNativeFramebufferScaleFactor_static</a></p>
     <p class="less-than-two-engines-text">In only one current engine.</p>
     <div class="support">
      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>79+</span></span>
