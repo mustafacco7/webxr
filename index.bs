@@ -83,8 +83,12 @@ spec: WebGL; urlPrefix: https://www.khronos.org/registry/webgl/specs/latest/1.0/
     type: dfn; text: webgl context lost flag; for: WebGLRenderingContext; url: webgl-context-lost-flag
     type: dfn; text: Fire a WebGL context event; url: fire-a-webgl-context-event
     type: dfn; text: invalidated; for: WebGLObject; url: #webgl-object-invalidated-flag
+    type: typedef; text: RGBA; url: #5.14
+    type: typedef; text: RGB; url: #5.14
 spec: WebGL 2.0; urlPrefix: https://www.khronos.org/registry/webgl/specs/latest/2.0/
     type: interface; text: WebGL2RenderingContext; url: WebGL2RenderingContext
+    type: typedef; text: SRGB8; url: #5.14
+    type: typedef; text: SRGB8_ALPHA8; url: #5.14
 spec: Orientation Sensor; urlPrefix: https://www.w3.org/TR/orientation-sensor/
     type: interface; text: AbsoluteOrientationSensor; url: absoluteorientationsensor
     type: interface; text: RelativeOrientationSensor; url: relativeorientationsensor
@@ -2175,6 +2179,13 @@ The buffers attached to an [=opaque framebuffer=] MUST be cleared to the values 
 </table>
 
 Note: Implementations may optimize away the required implicit clear operation of the [=opaque framebuffer=] as long as a guarantee can be made that the developer cannot gain access to buffer contents from another process. For instance, if the developer performs an explicit clear then the implicit clear is not needed.
+
+If an {{XRWebGLLayer}} is created with an {{XRWebGLLayerInit/alpha}} set to `true`, the {{XRWebGLLayer/framebuffer}} must be backed by a texture with the {{RGBA}} color format.
+If an {{XRWebGLLayer}} is created with an {{XRWebGLLayerInit/alpha}} set to `false`, the {{XRWebGLLayer/framebuffer}} must be backed by a texture with the {{RGB}} color format.
+
+However, the [=XR Compositor=] MUST treat the {{XRWebGLLayer/framebuffer}}'s backing's pixels as if they were in the {{SRGB8_ALPHA8}} or {{SRGB8}} {{XRLayerInit/colorFormat}}.
+
+NOTE: this means that the [=XR Compositor=] MUST not do any gamma conversion from linear {{RGBA}} or {{RGB}} when it processes the texture backing the {{XRWebGLLayer/framebuffer}}. Otherwise, the pixels in the final rendering will appear too bright which will not match the rendering on a regular 2D {{WebGLRenderingContext}} context.
 
 When an {{XRWebGLLayer}} is set as an [=immersive session=]'s {{XRRenderState/baseLayer}} the content of the [=opaque framebuffer=] is presented to the [=immersive XR device=] immediately after an [=XR animation frame=] completes, but only if at least one of the following has occurred since the previous [=XR animation frame=]:
 
