@@ -1836,7 +1836,7 @@ interface XRInputSource {
   [SameObject] readonly attribute XRSpace targetRaySpace;
   [SameObject] readonly attribute XRSpace? gripSpace;
   [SameObject] readonly attribute FrozenArray&lt;DOMString&gt; profiles;
-  [SameObject] readonly attribute boolean alreadyVisible;
+  [SameObject] readonly attribute boolean skipRendering;
 };
 </pre>
 
@@ -1854,13 +1854,19 @@ The <dfn attribute for="XRInputSource">targetRaySpace</dfn> attribute is an {{XR
 
 The <dfn attribute for="XRInputSource">gripSpace</dfn> attribute is an {{XRSpace}} that has a [=native origin=] tracking to the pose that should be used to render virtual objects such that they appear to be held in the user's hand. If the user were to hold a straight rod, this {{XRSpace}} places the [=native origin=] at the centroid of their curled fingers and where the `-Z` axis points along the length of the rod towards their thumb. The `X` axis is perpendicular to the back of the hand being described, with the back of the user's right hand pointing towards `+X` and the back of the user's left hand pointing towards `-X`. The `Y` axis is implied by the relationship between the `X` and `Z` axis, with `+Y` roughly pointing in the direction of the user's arm.
 
+The <dfn attribute for="XRInputSource">skipRendering</dfn> attribute indicates that this input is visible and MAY NOT need to be rendered by the current session. If {{XRInputSource/skipRendering}} is true and the targetRayMode is "tracked-pointer", the user agent MUST ensure that a representation of the [=XR input source=] is always shown to the user.
+
+<p class="note">
+Examples of the controller being shown to the user include the controller is in between the display and the user, the display is transparent or the controller is rendered by the operating system.
+
+skipRendering is a hint to developers about not rendering input sources such as controllers. Pick rays and cursor should still be rendered.
+</p>
+
 The {{gripSpace}} MUST be `null` if the input source isn't inherently trackable such as for input sources with a {{targetRayMode}} of {{XRTargetRayMode/"gaze"}} or {{XRTargetRayMode/"screen"}}.
 
 The <dfn attribute for="XRInputSource">profiles</dfn> attribute is a [=/list=] of [=input profile name=]s indicating both the prefered visual representation and behavior of the input source.
 
 An <dfn for="XRInputSource">input profile name</dfn> is an ASCII lowercase {{DOMString}} containing no spaces, with separate words concatenated with a hyphen (`-`) character. A descriptive name should be chosen, using the prefered verbiage of the device vendor when possible. If the platform provides an appropriate identifier, such as a USB vendor and product ID, it MAY be used. Values that uniquely identify a single device, such as serial numbers, MUST NOT be used. The [=input profile name=] MUST NOT contain an indication of device handedness. If multiple user agents expose the same device, they SHOULD make an effort to report the same [=input profile name=]. The <a href="https://github.com/immersive-web/webxr-input-profiles/tree/master/packages/registry">WebXR Input Profiles Registry</a> is the recommended location for managing [=input profile name=]s.
-
-The <dfn attribute for="XRInputSource">alreadyVisible</dfn> attribute indicates that this input is visible and does not need to be rendered by the Website. Examples include the input source being between the user and the display or the input being shown by the operating system. 
 
 Profiles are given in descending order of specificity. Any [=input profile name=]s given after the first entry in the list should provide fallback values that represent alternative representations of the device. This may include a more generic or prior version of the device, a more widely recognized device that is sufficiently similar, or a broad description of the device type (such as "generic-trigger-touchpad"). If multiple profiles are given, the layouts they describe must all represent a superset or subset of every other profile in the list.
 
