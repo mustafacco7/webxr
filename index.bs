@@ -1870,7 +1870,7 @@ The <dfn attribute for="XRInputSource">skipRendering</dfn> attribute indicates t
 <p class="note">
 Examples of the controller being shown to the user include the controller is in between the display and the user, the display is transparent or the controller is rendered by the operating system.
 
-skipRendering is a hint to developers about not rendering input sources such as controllers. Pick rays and cursor should still be rendered.
+{{XRInputSource/skipRendering}} is a hint to developers about not rendering input sources such as controllers. Pick rays and cursor should still be rendered.
 </p>
 
 For input sources with a {{targetRayMode}} of {{XRTargetRayMode/"transient-pointer"}} the {{gripSpace}} should be the associated user gesture if there is one, otherwise it should be another space the user controls such as the ViewerSpace or the gripSpace or the targetRaySpace of another XRInput. This is to allow user the user to still manipulate the targetRaySpace.
